@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'oscarbot'
+    'oscarbot',
+    'seller_bot',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'bot_config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
     }
 }
 
@@ -120,6 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'public' / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -127,6 +136,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Ботыч
-OSCARBOT_BOT_MODEL = 'oscarbot.bot'
+OSCARBOT_BOT_MODEL = 'oscarbot.Bot'
 OSCARBOT_APPS = ['seller_bot']
+BASE_URL = 'http://127.0.0.1:8000'
+TELEGRAM_URL = os.getenv('TELEGRAM_URL', 'https://api.telegram.org/bot')
 TELEGRAM_PARSE_MODE = 'MARKDOWN'
+TELEGRAM_TEXT_PROCESSOR = 'seller_bot.text_processor.handler'
