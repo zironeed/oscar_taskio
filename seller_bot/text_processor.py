@@ -8,7 +8,7 @@ def handler(user, text):
     Обработчик текста. Ищем дату в формате dd.mm.yyyy
     """
     if re.match(r'^\d{2}.\d{2}.\d{4}$', text['text']):
-        date = re.split(r'[.\-]', text['text'])
+        date = re.split(r'[.\-/]', text['text'])
         try:
             appointment = Appointment.objects.create(user=user, date=''.join(date[::-1]))
             appointment.save()
