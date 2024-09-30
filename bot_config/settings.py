@@ -144,3 +144,5 @@ TELEGRAM_URL = os.getenv('TELEGRAM_URL', 'https://api.telegram.org/bot')
 
 TELEGRAM_PARSE_MODE = 'MARKDOWN'
 TELEGRAM_TEXT_PROCESSOR = 'seller_bot.text_processor.handler'
+
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
