@@ -16,7 +16,7 @@ def handler(user, text):
         except Exception:
             message = 'Вы уже записаны на консультацию в этот день'
     else:
-        message = 'Mojno po-russki please?'
+        message = 'Я не знаю такой команды'
 
     return TGResponse(
         message=message,

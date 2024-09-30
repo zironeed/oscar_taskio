@@ -19,7 +19,7 @@ def start(user):
         message=f'Здравствуйте, {name}!\nНе желаете приобрести подарок?',
         menu=menu,
         # photo=r'gifts.png',
-        # file=r'gifts.pdf'
+        file=r'https://api.slingacademy.com/v1/sample-data/files/just-text.pdf'
     )
     return response
 
