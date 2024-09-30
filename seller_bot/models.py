@@ -3,6 +3,9 @@ from oscarbot.models import User
 
 
 class Appointment(models.Model):
+    """
+    Запись на консультацию
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     date = models.DateField(verbose_name='Дата')
 

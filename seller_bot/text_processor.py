@@ -4,6 +4,9 @@ from oscarbot.response import TGResponse
 
 
 def handler(user, text):
+    """
+    Обработчик текста. Ищем дату в формате dd.mm.yyyy
+    """
     if re.match(r'^\d{2}.\d{2}.\d{4}$', text['text']):
         date = re.split(r'[.\-]', text['text'])
         try:

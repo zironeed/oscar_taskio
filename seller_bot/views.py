@@ -3,6 +3,10 @@ from oscarbot.menu import Button, Menu
 
 
 def start(user):
+    """
+    Реакция на /start
+    Файлы с локалхоста отправить нельзя
+    """
     menu = Menu(
         [Button("Желаю", callback='/buy/')]
     )
@@ -21,6 +25,9 @@ def start(user):
 
 
 def try_to_buy(user):
+    """
+    Если юзер желает купить подарок
+    """
     return TGResponse(
         message='В таком случае, давайте я запишу вас на консультацию. Вместе мы сможем выбрать лучший подарок!\n'
                 'Введите дату',
