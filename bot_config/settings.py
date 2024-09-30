@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'public' / 'static'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
@@ -138,7 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Ботыч
 OSCARBOT_BOT_MODEL = 'oscarbot.Bot'
 OSCARBOT_APPS = ['seller_bot']
-BASE_URL = 'http://127.0.0.1:8000'
+
+BASE_URL = os.getenv('BASE_URL', 'http://127.0.0.1:8000')
 TELEGRAM_URL = os.getenv('TELEGRAM_URL', 'https://api.telegram.org/bot')
+
 TELEGRAM_PARSE_MODE = 'MARKDOWN'
 TELEGRAM_TEXT_PROCESSOR = 'seller_bot.text_processor.handler'
